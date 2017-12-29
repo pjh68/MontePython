@@ -6,10 +6,9 @@ from pprint import pprint
 def main(argv):
     #CONFIG
     monteSimulationRuns = int(sys.argv[1]) if len(sys.argv)>1 else 10
-    storySizesFilename = sys.argv[2] if len(sys.argv)>2 else 'countOfStorySize.json'
-    distributionsFilename = sys.argv[3] if len(sys.argv)>3 else 'defaultDistribution.json'
-    
-    velocity = 70 #points per sprint - we won't monte this
+    sprintCapacity = int(sys.argv[2]) if len(sys.argv)>3 else 1
+    storySizesFilename = sys.argv[3] if len(sys.argv)>4 else 'countOfStorySize.json'
+    distributionsFilename = sys.argv[4] if len(sys.argv)>4 else 'defaultDistribution.json'
     outputfilename = 'MonteOutput.json'
     
     #Load story sizes
@@ -44,7 +43,7 @@ def main(argv):
     print 'Avg simulated points ', np.mean(monteResults)
 
     #convert points to sprints
-    monteResultsSprints = [x/velocity for x in monteResults]
+    monteResultsSprints = [x/sprintCapacity for x in monteResults]
 
     #show some graphics
     sorted_data = np.sort(monteResultsSprints)

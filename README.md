@@ -14,7 +14,7 @@ And not to make excuses, but written with a broken thumb in a brace so please ex
 3. Run simulation: `python monteCarlo.py`
 
 Advanced:
-`python monteCarlo.py numSimulations countOfStorySize distributionFile`
+`python monteCarlo.py numSimulations sprintCapacity countOfStorySize distributionFile`
 
 You can modify the default distribution to be more optimistic or more pessamistic - see neverEarlyDistribution.json as an example!
 
