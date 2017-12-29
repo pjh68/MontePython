@@ -10,7 +10,7 @@ And not to make excuses, but written with a broken thumb in a brace so please ex
 ## Usage:
 
 1. Populate "countOfStorySize.json" file (see below for VSTS example)
-2. Generate default distribution parameters (for triangular distribution): `python generateDefaultDistribution.py``
+2. Generate default distribution parameters (for triangular distribution): `python generateDefaultDistribution.py`
 3. Run simulation: `python monteCarlo.py`
 
 Advanced:
