@@ -43,8 +43,11 @@ def main(argv):
     print 'Max simulated points ',max(monteResults)
     print 'Avg simulated points ', np.mean(monteResults)
 
+    #convert points to sprints
+    monteResultsSprints = list(map(lambda x: x/velocity, monteResults))
+
     #show some graphics
-    sorted_data = np.sort(monteResults)
+    sorted_data = np.sort(monteResultsSprints)
     plt.step(sorted_data, np.arange(sorted_data.size))  # From 0 to the number of data points-1
     plt.show()
 
