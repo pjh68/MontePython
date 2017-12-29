@@ -45,19 +45,24 @@ def main(argv):
     #convert points to sprints
     monteResultsSprints = [x/sprintCapacity for x in monteResults]
 
-    #show some graphics
     sorted_data = np.sort(monteResultsSprints)
     normalised_y = [y/float(sorted_data.size) for y in np.arange(sorted_data.size)]
-    plt.step(sorted_data, normalised_y)  # From 0 to the number of data points-1
-
-    plt.show()
-
-
 
     #calculate distribution of end dates
-    #TODO
+    print ''
+    print '------------------------------'
+    print 'Probability  -  Points/Sprints'
+    interestingInterval = 0.1
+    for index, y in enumerate(normalised_y):
+        if y >= interestingInterval:
+            print y, ' - ', sorted_data[index]
+            interestingInterval+=0.05
 
-
+    #show some graphics        
+    print ''
+    print 'Plotting graph - please see window. Close window to continue.'
+    plt.step(sorted_data, normalised_y)  # From 0 to the number of data points-1
+    plt.show()
 
     #with open(outputfilename, 'w') as outfile:
     #    json.dump(pointsDist, outfile)
