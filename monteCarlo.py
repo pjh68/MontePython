@@ -44,11 +44,13 @@ def main(argv):
     print 'Avg simulated points ', np.mean(monteResults)
 
     #convert points to sprints
-    monteResultsSprints = list(map(lambda x: x/velocity, monteResults))
+    monteResultsSprints = [x/velocity for x in monteResults]
 
     #show some graphics
     sorted_data = np.sort(monteResultsSprints)
-    plt.step(sorted_data, np.arange(sorted_data.size))  # From 0 to the number of data points-1
+    normalised_y = [y/float(sorted_data.size) for y in np.arange(sorted_data.size)]
+    plt.step(sorted_data, normalised_y)  # From 0 to the number of data points-1
+
     plt.show()
 
 
